@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title></title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+  <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+
+    #geolocate {
+        background: #fff;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 30px;
+        height: 30fpx;
+        z-index: 1000;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 20px;
+        color: #3C4E5A;
+        display: block;
+        border: 1px solid #BBB;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    .wax-tooltip .close {
+      top:4px;
+      right:4px;
+      width:18px;
+      height:18px;
+    }
+    .wax-legends,
+    .wax-tooltip {
+      position:absolute;
+      z-index:9;
+      right:10px;
+      }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script type="text/javascript">
+    var map = L.mapbox.map('map', 'anmccartney.RussiaMap', {zoomControl: false});
+    map.gridControl.options.follow = true;
+
+    map.dragging.disable();
+    map.touchZoom.disable();
+    map.doubleClickZoom.disable();
+    map.scrollWheelZoom.disable();
+    // disable tap handler, if present.
+    if (map.tap) map.tap.disable();
+  </script>
+</body>
+</html>
